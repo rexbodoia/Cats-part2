@@ -1,0 +1,22 @@
+<h2>Cat form!</h2>
+<form action="<%= cats_url %>" method="post">
+  <form type="hidden" action="_method" method="patch"></form>
+  <label for="cat_name">Name</label>
+  <input type="text" name="cats[name]" value="<%= @cat.name %>" id="cat_name">
+  <br>
+  <label for="cat_birth_date">Birth Day</label>
+  <input type="date" name="cats[birth_date]" value="<%= @cat.birth_date %>" id="cat_birth_date">
+  <br>
+  <label for="cat_color">Color</label>
+  <input type="text" name="cats[color]" value="<%= @cat.color %>" id="cat_color">
+  <br>
+  <input type="radio" name="cats[sex]" <%= @cat.sex == 'M' ? 'checked' : '' %> value="M" id="cat_sex">
+  <label for="cat_sex_m">Male</label>
+  <input type="radio" name="cats[sex]" value="F" <%= @cat.sex == 'F' ? 'checked' : '' %> id="cat_sex">
+  <label for="cat_sex_f">Female</label>
+  <br>
+  <label for="cat_description">Description</label>
+  <textarea name="cats[description]" rows="8" cols="80" value="<%= @cat.description %>" id="cat_description"></textarea>
+  <br>
+  <input type="submit" value="Build my cat!">
+</form>
