@@ -10,6 +10,7 @@ class CatsController < ApplicationController
   end
 
   def new
+    @cat = Cat.new
     render :new
   end
 
@@ -33,7 +34,7 @@ class CatsController < ApplicationController
 
   def update
     @cat = Cat.find(params[:id])
-    if @cat.save
+    if @cat.update(cats_params)
       redirect_to cat_url(@cat)
     else
       raise 'You put the wrong stuff!!'

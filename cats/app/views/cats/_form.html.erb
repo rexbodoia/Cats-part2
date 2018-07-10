@@ -1,0 +1,37 @@
+<!-- #add patch thing if edit
+#adjust for variables getting passed in
+#change button names -->
+
+<!-- <%# debugger %> -->
+<% action_url = (action == :new) ? cats_url : cat_url(hella_cool_cat) %>
+
+<h2>Cat form!</h2>
+  <form action="<%= action_url %>" method="post">
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="patch"></input>
+  <% end %>
+
+    <label for="cat_name">Name</label>
+    <input type="text" name="cats[name]" value="<%= hella_cool_cat.name %>" id="cat_name">
+    <br>
+
+    <label for="cat_birth_date">Birth Day</label>
+    <input type="date" name="cats[birth_date]" value="<%= hella_cool_cat.birth_date %>" id="cat_birth_date">
+    <br>
+
+    <label for="cat_color">Color</label>
+    <input type="text" name="cats[color]" value="<%= hella_cool_cat.color %>" id="cat_color">
+    <br>
+
+    <input type="radio" name="cats[sex]" <%= hella_cool_cat.sex == 'M' ? 'checked' : '' %> value="M" id="cat_sex">
+    <label for="cat_sex_m">Male</label>
+    <input type="radio" name="cats[sex]" value="F" <%= hella_cool_cat.sex == 'F' ? 'checked' : '' %> id="cat_sex">
+    <label for="cat_sex_f">Female</label>
+    <br>
+
+    <label for="cat_description">Description</label>
+    <textarea name="cats[description]" rows="8" cols="80" placeholder="<%= hella_cool_cat.description %>" id="cat_description"></textarea>
+    <br>
+
+  <input type="submit" value="Build my cat!">
+</form>
