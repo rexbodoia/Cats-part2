@@ -14,4 +14,8 @@
 
 class Cat < ApplicationRecord
   validates :name, :sex, :description, presence: true
+
+  has_many :rental_requests,
+    foreign_key: :cat_id,
+    class_name: :CatRentalRequest
 end
